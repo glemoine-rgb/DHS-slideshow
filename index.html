@@ -21,18 +21,15 @@
     </style>
 
     <script>
-        // Refresh every day at 07:30
-        function checkRefreshTime() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
+    // Refresh every 3 minutes (180,000 ms)
+    function forceRefresh() {
+        location.reload(true);
+    }
 
-            if (hours === 7 && minutes === 30) {
-                location.reload(true);
-            }
-        }
-        setInterval(checkRefreshTime, 60000);
-    </script>
+    // Kick off the cycle
+    setInterval(forceRefresh, 180000);
+</script>
+
 </head>
 <body>
     <iframe
