@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Daily 7:30 Refresh Slideshow</title>
+
     <style>
         html, body {
             margin: 0;
@@ -20,19 +21,17 @@
     </style>
 
     <script>
-        // Refresh every day at 07:30 (device local time)
+        // Refresh every day at 07:30 (local device time)
         function checkRefreshTime() {
             const now = new Date();
-            const hours = now.getHours();   // 0–23
+            const hours = now.getHours();
             const minutes = now.getMinutes();
 
-            // 7:30 AM local time
             if (hours === 7 && minutes === 30) {
                 location.reload(true);
             }
         }
 
-        // Check once a minute
         setInterval(checkRefreshTime, 60000);
     </script>
 
