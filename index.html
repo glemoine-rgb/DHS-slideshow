@@ -20,15 +20,20 @@
         }
     </style>
 
-    <script>
-    // Refresh every 3 minutes (180,000 ms)
-    function forceRefresh() {
-        location.reload(true);
-    }
+   <script>
+    // Refresh every day at 07:30 (local device time)
+    function checkRefreshTime() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
 
-    // Kick off the cycle
-    setInterval(forceRefresh, 180000);
+        if (hours === 7 && minutes === 30) {
+            location.reload(true);
+        }
+    }
+    setInterval(checkRefreshTime, 60000);
 </script>
+
 
 </head>
 <body>
