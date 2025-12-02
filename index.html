@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Daily 7:30 Refresh Slideshow</title>
+    <title>DHS Slideshow (Auto-Update Mode)</title>
 
     <style>
         html, body {
@@ -21,27 +21,39 @@
     </style>
 
     <script>
-        // Refresh every day at 07:30 (local device time)
-        function checkRefreshTime() {
-            const now = new Date();
-            const hours = now.getHours();
-            const minutes = now.getMinutes();
+        let currentVersion = null;
 
-            if (hours === 7 && minutes === 30) {
-                location.reload(true);
+        // Poll version.txt every 60 seconds
+        async function checkVersion() {
+            try {
+                const response = await fetch('version.txt?' + Date.now(), { cache: 'no-store' });
+                const newVersion = await response.text();
+
+                // first time seeing version
+                if (currentVersion === null) {
+                    currentVersion = newVersion.trim();
+                    return;
+                }
+
+                // if version changed → reload entire page
+                if (newVersion.trim() !== currentVersion) {
+                    location.reload(true);
+                }
+            } catch (e) {
+                console.error("Version check failed:", e);
             }
         }
-        setInterval(checkRefreshTime, 60000);
-    </script>
 
+        // check version every 60 seconds
+        setInterval(checkVersion, 60000);
+        window.onload = checkVersion;
+    </script>
 </head>
+
 <body>
     <iframe
         src="https://docs.google.com/presentation/d/e/2PACX-1vR3ABP9Zdiyfx6E60cMd_-oOQMnNFrfus_xI1wgvXV7buru2fzbMpbBgzxRK7POoLn_8SVB1ZBdymwW/pubembed?start=true&loop=true&delayms=10000&rm=minimal"
-        frameborder="0"
-        allowfullscreen="true"
-        mozallowfullscreen="true"
-        webkitallowfullscreen="true">
+        allowfullscreen>
     </iframe>
 </body>
 </html>
