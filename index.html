@@ -21,7 +21,7 @@
     </style>
 
     <script>
-        // Refresh every day at 07:30 (local device time)
+        // Refresh every day at 07:30
         function checkRefreshTime() {
             const now = new Date();
             const hours = now.getHours();
@@ -31,15 +31,16 @@
                 location.reload(true);
             }
         }
-
         setInterval(checkRefreshTime, 60000);
     </script>
-
 </head>
 <body>
     <iframe
-        src="https://docs.google.com/presentation/d/1P5_pE6RZFbgzB4D1aEtK_uTdYdgU1rTK2JCWADije2E/pub?start=true&loop=true&delayms=10000&slide=id.g39f77e3ed9a_1_17"
-        allowfullscreen>
+        src="https://docs.google.com/presentation/d/e/2PACX-1vR3ABP9Zdiyfx6E60cMd_-oOQMnNFrfus_xI1wgvXV7buru2fzbMpbBgzxRK7POoLn_8SVB1ZBdymwW/pubembed?start=true&loop=true&delayms=10000"
+        frameborder="0"
+        allowfullscreen="true"
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true">
     </iframe>
 </body>
 </html>
