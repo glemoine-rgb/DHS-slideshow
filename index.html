@@ -20,25 +20,24 @@
         }
     </style>
 
-   <script>
-    // Refresh every day at 07:30 (local device time)
-    function checkRefreshTime() {
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
+    <script>
+        // Refresh every day at 07:30 (local device time)
+        function checkRefreshTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
 
-        if (hours === 7 && minutes === 30) {
-            location.reload(true);
+            if (hours === 7 && minutes === 30) {
+                location.reload(true);
+            }
         }
-    }
-    setInterval(checkRefreshTime, 60000);
-</script>
-
+        setInterval(checkRefreshTime, 60000);
+    </script>
 
 </head>
 <body>
     <iframe
-        src="https://docs.google.com/presentation/d/e/2PACX-1vR3ABP9Zdiyfx6E60cMd_-oOQMnNFrfus_xI1wgvXV7buru2fzbMpbBgzxRK7POoLn_8SVB1ZBdymwW/pubembed?start=true&loop=true&delayms=10000"
+        src="https://docs.google.com/presentation/d/e/2PACX-1vR3ABP9Zdiyfx6E60cMd_-oOQMnNFrfus_xI1wgvXV7buru2fzbMpbBgzxRK7POoLn_8SVB1ZBdymwW/pubembed?start=true&loop=true&delayms=10000&rm=minimal"
         frameborder="0"
         allowfullscreen="true"
         mozallowfullscreen="true"
